@@ -28,8 +28,8 @@ jobs:
     # Run on a ubuntu-22.04 VM image
     runs-on: ubuntu-22.04
     permissions:
-    packages: write
-    contents: read
+      packages: write
+      contents: read
     name: Build cicd-lab
     env:
       GITHUB_USER: riwa90
