@@ -1,0 +1,26 @@
+name: Build and test lab-cicd
+
+on:
+  # Automatically run this pipeline on every push to the main branch
+  push:
+    branches:
+      - main
+  # Allow running this pipeline manually from githubs website.
+  workflow_dispatch:
+
+jobs:
+  test:
+    # Run on a ubuntu-22.04 VM image
+    runs-on: ubuntu-22.04
+    name: Test cicd-lab
+    steps:
+      # Checkout our repository
+      - uses: actions/checkout@v3
+
+      # Install our NPM dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Run our unit tests
+      - name: Run unit tests
+        run: npm run test
